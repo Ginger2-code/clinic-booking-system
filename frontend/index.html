@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinic Booking</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Clinic Booking</h1>
+  <nav class="tabs" id="tabs">
+    <button class="tab-btn active" data-tab="appointments">Appointments</button>
+    <button class="tab-btn" data-tab="patients">Patients</button>
+    <button class="tab-btn" data-tab="doctors">Doctors</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===================== APPOINTMENTS ===================== -->
+  <section id="appointments" class="panel active">
+    <div class="panel-header">
+      <h2>Appointments</h2>
+      <button class="btn primary" id="btn-new-appointment">+ New Appointment</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="appt-search" placeholder="Search by patient, doctor, or notes…">
+      <select id="appt-status-filter">
+        <option value="">All statuses</option>
+        <option value="scheduled">Scheduled</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+    </div>
+
+    <div id="appt-feedback" class="feedback"></div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Date / Time</th><th>Patient</th><th>Doctor</th><th>Status</th><th>Notes</th><th></th>
+        </tr>
+      </thead>
+      <tbody id="appt-tbody"></tbody>
+    </table>
+  </section>
+
+  <!-- ===================== PATIENTS ===================== -->
+  <section id="patients" class="panel">
+    <div class="panel-header">
+      <h2>Patients</h2>
+      <button class="btn primary" id="btn-new-patient">+ New Patient</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="patient-search" placeholder="Search by name, email, or phone…">
+    </div>
+
+    <div id="patient-feedback" class="feedback"></div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Phone</th><th>DOB</th><th></th></tr>
+      </thead>
+      <tbody id="patient-tbody"></tbody>
+    </table>
+  </section>
+
+  <!-- ===================== DOCTORS ===================== -->
+  <section id="doctors" class="panel">
+    <div class="panel-header">
+      <h2>Doctors</h2>
+      <button class="btn primary" id="btn-new-doctor">+ New Doctor</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="doctor-search" placeholder="Search by name, specialty, or email…">
+    </div>
+
+    <div id="doctor-feedback" class="feedback"></div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Name</th><th>Specialty</th><th>Email</th><th>Phone</th><th></th></tr>
+      </thead>
+      <tbody id="doctor-tbody"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<!-- ===================== MODAL (shared by all 3 forms) ===================== -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modal-title">Form</h3>
+      <button class="icon-btn" id="modal-close">&times;</button>
+    </div>
+    <form id="modal-form"></form>
+  </div>
+</div>
+
+<!-- ===================== DELETE CONFIRM DIALOG ===================== -->
+<div class="modal-overlay" id="confirm-overlay">
+  <div class="modal small">
+    <div class="modal-header">
+      <h3>Confirm delete</h3>
+    </div>
+    <p id="confirm-text">Are you sure you want to delete this record?</p>
+    <div class="modal-actions">
+      <button class="btn" id="confirm-cancel">Cancel</button>
+      <button class="btn danger" id="confirm-delete">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

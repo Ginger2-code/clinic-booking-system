@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# environment
+.env
+backend/.env
+
+# logs
+npm-debug.log*
+*.log
+
+# OS/editor cruft
+.DS_Store
+.vscode/
+.idea/
+
+# build artifacts (none expected, placeholder for future bundling)
+dist/
